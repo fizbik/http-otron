@@ -42,13 +42,13 @@ console.log(result.response); // the complete Fetch API Response object
 
 ## Features
 
-:heavy_check_mark: Expressive, developer-friendly API that aligns with the Fetch API's `RequestInit` type
-:heavy_check_mark: Sane defaults: automatic text, JSON, and blob response decoding
-:heavy_check_mark: Robust error handling for problems with the network, CORS, request format, and response format
-:heavy_check_mark: No exceptions thrown, everything returned in a `Result` object
-:heavy_check_mark: No assumptions made about whether an HTTP status is an error or not [TBD article]().
-:heavy_check_mark: Zero dependencies
-:heavy_check_mark: 100% unit test coverage.
+:heavy_check_mark: Expressive, developer-friendly API that aligns with the Fetch API's `RequestInit` type  
+:heavy_check_mark: Sane defaults: automatic text, JSON, and blob response decoding  
+:heavy_check_mark: Robust error handling for problems with the network, CORS, request format, and response format  
+:heavy_check_mark: No exceptions thrown, everything returned in a `Result` object  
+:heavy_check_mark: No assumptions made about whether an HTTP status is an error or not [TBD article]().  
+:heavy_check_mark: Zero dependencies  
+:heavy_check_mark: 100% unit test coverage
 
 ## Install
 
