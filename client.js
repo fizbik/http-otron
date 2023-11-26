@@ -1,4 +1,9 @@
+import { HttpRequest } from "./request.js";
 import { RequestInitMixin, defaultRequestInit } from "./requestInitMixin.js";
+
+export function createHttpClient() {
+  return new HttpClient();
+}
 
 export class HttpClient {
   constructor() {
@@ -6,8 +11,8 @@ export class HttpClient {
     this.baseUrl = "";
   }
 
-  createRequest() {
-    return new Request(this);
+  createHttpRequest() {
+    return new HttpRequest(this);
   }
 
   withBaseUrl(url) {
@@ -15,4 +20,4 @@ export class HttpClient {
   }
 }
 
-Object.assign(Client.prototype, RequestInitMixin);
+Object.assign(HttpClient.prototype, RequestInitMixin);

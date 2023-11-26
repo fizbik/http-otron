@@ -1,13 +1,13 @@
 {
   "name": "@fizbik/http-otron",
   "version": "0.9.0",
-  "description": "An HTTP client fRoM tHe FuTuRe",
+  "description": "The JavaScript HTTP client fRoM tHe FuTuRe",
   "main": "index.js",
   "type": "module",
   "scripts": {
     "test": "ava",
     "test-watch": "ava -w",
-    "test-cover": "c8 report --all ava"
+    "test-cover": "c8 --check-coverage --100 --all ava"
   },
   "repository": {
     "type": "git",
