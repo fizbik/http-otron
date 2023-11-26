@@ -256,6 +256,16 @@ test("withoutWindow", (t) => {
   t.assert(subj.init.window === null);
 });
 
+test("withFetchFn", (t) => {
+  const subj = createTestSubject();
+  const fn = () => {};
+
+  const returned = subj.withFetchFn(fn);
+
+  t.assert(returned === subj);
+  t.assert(subj.init.httpotron.fetch === fn);
+});
+
 function createTestSubject() {
   return new TestSubject();
 }

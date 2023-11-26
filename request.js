@@ -14,7 +14,15 @@ export class HttpRequest {
 
     try {
       fullUrl = `${this.client.baseUrl}${url}`;
-      resp = await fetch(fullUrl, this.init);
+      fullUrl = new URL(fullUrl).toString();
+    } catch (ex) {
+      err = createRequestErr(ex.message);
+      result = createResultFromError(fullUrl, err);
+      return result;
+    }
+
+    try {
+      resp = await this.init.httpotron.fetch(fullUrl, this.init);
     } catch (ex) {
       if (isNetworkError(ex)) {
         err = createNetworkErr(ex.message);
@@ -52,6 +60,13 @@ export class HttpRequest {
     result = createResult(fullUrl, resp, decoded);
     return result;
   }
+
+  withStubResult(result) {
+    this.send = function () {
+      return result;
+    };
+    return this;
+  }
 }
 
 Object.assign(HttpRequest.prototype, RequestInitMixin);
@@ -70,5 +85,5 @@ function getContentLength(resp) {
 }
 
 function getContentType(resp) {
-  return resp.headers.get("content-type") || "";
+  return resp.headers.get("content-type");
 }

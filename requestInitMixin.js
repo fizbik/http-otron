@@ -9,6 +9,7 @@ export const defaultRequestInit = {
       jsonTypes: new Set(defaultJsonPatterns),
       blobTypes: new Set(defaultBlobPatterns),
     },
+    fetch: fetch,
   },
 };
 
@@ -137,6 +138,11 @@ export const RequestInitMixin = {
     this.init.httpotron.decoding.textTypes = new Set();
     this.init.httpotron.decoding.jsonTypes = new Set();
     this.init.httpotron.decoding.blobTypes = new Set();
+    return this;
+  },
+
+  withFetchFn(fn) {
+    this.init.httpotron.fetch = fn;
     return this;
   },
 };
